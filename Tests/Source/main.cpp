@@ -1,7 +1,12 @@
 
+#define ENABLE_ASSERT 1
+#define ENABLE_VERIFY 1
+
 #include "MElib/MElib.h"
+
+using namespace MElib::Types;
 
 int main()
 {
-	MElib::Test("Hallo!");
+	MElib::Logging::Info("Hallo!");
 }

@@ -10,8 +10,11 @@ project "MElib"
     }
 
     includedirs {
-        "Source/"
+        "Source/",
+
+        "%{spdlog.IncludeDir}"
     }
 
     defines {
+        spdlog.Defines
     }

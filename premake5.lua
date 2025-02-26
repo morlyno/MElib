@@ -34,5 +34,9 @@ workspace "MElib"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}"
 
+group "Dependencies"
+	include "vendor/spdlog.lua"
+group ""
+
 include "melib"
 include "Tests"
