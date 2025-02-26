@@ -1,11 +1,30 @@
-#pragma once
+
+// NOTE: No include guard
+// #pragma once
+
 
 #include "MElib/Core/Core.h"
 #include "MElib/Core/Logging.h"
 
+#ifdef ME_ASSERT
+	#undef ME_CORE_ASSERT_MESSAGE_INTERNAL
+	#undef ME_ASSERT_MESSAGE_INTERNAL
+	#undef ME_CORE_ASSERT
+	#undef ME_ASSERT
+#endif
+
+#ifdef ME_VERIFY
+	#define ME_CORE_VERIFY_MESSAGE_INTERNAL
+	#define ME_VERIFY_MESSAGE_INTERNAL
+	#define ME_CORE_VERIFY
+	#define ME_VERIFY
+#endif
+
+
 #ifdef ME_PLATFORM_WINDOWS
 	#define ME_DEBUG_BREAK __debugbreak
 #endif
+
 
 #if ENABLE_ASSERT
 	#define ME_CORE_ASSERT_MESSAGE_INTERNAL(...) ::MElib::Logging::PrintAssertMessage("Core Assertion Failed" __VA_OPT__(,) __VA_ARGS__)
