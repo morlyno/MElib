@@ -10,6 +10,12 @@
 	#error Unkown Compiler!
 #endif
 
+#ifdef ME_CONFIG_DEBUG
+	#define ME_IF_DEBUG(x) x
+#else
+	#define ME_IF_DEBUG(...) (void)0
+#endif
+
 namespace MElib {
 
 	inline namespace Types {

@@ -4,6 +4,8 @@
 
 namespace MElib::Logging {
 
+	void SetLogLevelTrace();
+
 	void Trace(std::string_view message);
 	void Debug(std::string_view message);
 	void Info(std::string_view message);

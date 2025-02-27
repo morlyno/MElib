@@ -8,6 +8,11 @@ namespace MElib {
 
 namespace MElib::Logging {
 
+	void SetLogLevelTrace()
+	{
+		spdlog::set_level(spdlog::level::trace);
+	}
+
 	void Trace(std::string_view message)
 	{
 		spdlog::trace(message);
