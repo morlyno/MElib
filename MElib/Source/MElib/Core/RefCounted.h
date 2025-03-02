@@ -2,7 +2,9 @@
 
 #include "MElib/Core/Core.h"
 
-#include "MElib/std/Include.h"
+#include <type_traits>
+#include <atomic>
+
 
 #define ME_REF_TRACK_ALIVE_INSTANCES 1
 //#define ME_ENABLE_WEAK_OPERATORS

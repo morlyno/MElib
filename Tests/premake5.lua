@@ -14,5 +14,10 @@ project "Tests"
     includedirs {
         "Source/",
 
-        "%{wks.location}/MElib/Source/"
+        "%{wks.location}/MElib/Source/",
+        "%{spdlog.IncludeDir}",
+    }
+    
+    defines {
+        spdlog.Defines
     }
