@@ -57,3 +57,21 @@ namespace MElib {
 	};
 
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//// Configuration ////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 
+// This guards the calls to Buffer.Write/Buffer.Read if a check and return.
+// There is no notification in any way (unless ENABLE_VERIFY is defined)
+// 
+// #define ENABLE_SAFE_BUFFER_ACCESS
+// 
+
+// 
+// This extends the behavior of ENABLE_SAFE_BUFFER_ACCESS by throwing an exception
+// there is still a VERIFY before this if ENABLE_VERIFY is defined
+// 
+// #define ENABLE_SAFE_BUFFER_EXCEPTIONS
+// 

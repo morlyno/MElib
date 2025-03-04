@@ -5,3 +5,6 @@
 
 #include "MElib/Core/Scoped.h"
 #include "MElib/Core/RefCounted.h"
+
+#include "MElib/Memory/Allocator.h"
+#include "MElib/Memory/Buffer.h"

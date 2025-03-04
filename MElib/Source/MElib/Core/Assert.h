@@ -41,7 +41,7 @@ namespace MElib {
 	#define ME_ASSERT(...) (void)0
 #endif
 
-#ifdef ENABLE_ASSERT
+#ifdef ENABLE_VERIFY
 	#define ME_CORE_VERIFY_MESSAGE_INTERNAL(...) ::MElib::PrintAssertMessage("Core Verify Failed" __VA_OPT__(,) __VA_OPT__(std::format(__VA_ARGS__)))
 	#define ME_VERIFY_MESSAGE_INTERNAL(...) ::MElib::PrintAssertMessage("Verify Failed" __VA_OPT__(,) __VA_OPT__(std::format(__VA_ARGS__)))
 
