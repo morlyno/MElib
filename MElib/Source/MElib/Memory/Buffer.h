@@ -25,6 +25,9 @@ namespace MElib::Memory {
 		void Write(const void* data, uint64 size, uint64 offset = 0) const;
 		void Read(void* targetMemory, uint64 size, uint64 offset = 0) const;
 
+		template<typename T>
+		T* As();
+
 	public:
 		static Buffer Copy(Buffer other);
 		static Buffer Copy(const void* data, uint64 size);
@@ -110,6 +113,12 @@ namespace MElib::Memory {
 }
 
 namespace MElib::Memory {
+
+	template<typename T>
+	T* Buffer::As()
+	{
+		return (T*)Memory;
+	}
 
 	template<typename TRange>
 	static Buffer Buffer::FromRange(const TRange& range)
