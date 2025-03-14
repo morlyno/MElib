@@ -1,22 +1,27 @@
-workspace "MElib"
-	configurations { "Debug", "Release" }
-	startproject "Tests"
-	conformancemode "On"
-
-	language "C++"
+project "MElib"
+    kind "StaticLib"
+    language "C++"
 	cppdialect "C++20"
 	staticruntime "Off"
+	conformancemode "On"
 
-	flags { "MultiProcessorCompile" }
+    targetdir ("%{wks.location}/bin/%{cfg.buildcfg}-%{cfg.system}/%{prj.name}")
+    objdir ("%{wks.location}/bin-int/%{cfg.buildcfg}-%{cfg.system}/%{prj.name}")
+
+    files {
+        "Source/**.h",
+        "Source/**.cpp"
+    }
+
+    includedirs {
+        "Source/"
+    }
 
 	defines {
 		"_CRT_SECURE_NO_WARNINGS",
 		"NOMINMAX"
 	}
 
-	filter "language:C++ or Language:C"
-		architecture "x86_64"
-		
 	filter "configurations:Debug or configurations:Debug-AS"
 		optimize "Off"
 		symbols "On"
@@ -31,12 +36,3 @@ workspace "MElib"
 		buildoptions { "/Zc:preprocessor", "/Zc:__cplusplus" }
         systemversion "latest"
         defines { "ME_PLATFORM_WINDOWS" }
-
-outputdir = "%{cfg.buildcfg}-%{cfg.system}"
-
-group "Dependencies"
-	include "vendor/spdlog.lua"
-group ""
-
-include "melib"
-include "Tests"
