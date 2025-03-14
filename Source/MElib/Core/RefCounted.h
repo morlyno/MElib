@@ -216,7 +216,6 @@ namespace MElib {
 	Ref<T>::~Ref()
 	{
 		DecreaseRef();
-		ME_IF_DEBUG(m_Instance = nullptr);
 	}
 
 	template<typename T>

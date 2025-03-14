@@ -1,19 +1,51 @@
 #pragma once
 
-#if !ME_PLATFORM_WINDOWS
-#error Platforms other than Windows are currently not supported!
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///// Platform ////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#if !defined(ME_PLATFORM_WINDOWS) // && ...
+	#if defined(_WIN32) || defined(_WIN64)
+		#define ME_PLATFORM_WINDOWS 1
+	#else
+		#error unknown platform
+	#endif
+
 #endif
 
-#if defined(_MSC_VER)
-	#define ME_COMPILER_MSVC 1
-#else
-	#error Unkown Compiler!
+#if (ME_PLATFORM_WINDOWS /* + ...*/) != 1
+	#error Invalid platform configuration
 #endif
 
-#ifdef ME_CONFIG_DEBUG
-	#define ME_IF_DEBUG(x) x
-#else
-	#define ME_IF_DEBUG(...) (void)0
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///// Compiler ////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#if !defined(ME_COMPILER_MSVC) // && ...
+	#if defined(_MSC_VER)
+		#define ME_COMPILER_MSVC 1
+	#else
+		#error Unkown Compiler!
+	#endif
+#endif
+
+#if (ME_COMPILER_MSVC /* + ... */) != 1
+	#error Invalid compiler detected
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef ME_DEBUG_BREAK
+	#ifdef ME_PLATFORM_WINDOWS
+		#define ME_DEBUG_BREAK __debugbreak
+	#endif
+#endif
+
+
+#ifndef _CRT_SECURE_NO_WARNINGS
+	#define _CRT_SECURE_NO_WARNINGS
 #endif
 
 namespace MElib {
@@ -31,10 +63,10 @@ namespace MElib {
 
 	struct Numeric
 	{
-		static constexpr int8  Int8Min           = 0x80;
-		static constexpr int16 Int16Min          = 0x8000;
-		static constexpr int32 Int32Min          = 0x80000000;
-		static constexpr int64 Int64Min          = 0x8000000000000000;
+		static constexpr int8  Int8Min           = (int8 )0x80;
+		static constexpr int16 Int16Min          = (int16)0x8000;
+		static constexpr int32 Int32Min          = (int32)0x80000000;
+		static constexpr int64 Int64Min          = (int64)0x8000000000000000;
 
 		static constexpr int8  Int8Max           = 0x7f;
 		static constexpr int16 Int16Max          = 0x7fff;

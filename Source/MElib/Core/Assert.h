@@ -22,10 +22,6 @@
 	#define ME_VERIFY
 #endif
 
-#ifdef ME_PLATFORM_WINDOWS
-	#define ME_DEBUG_BREAK __debugbreak
-#endif
-
 namespace MElib {
 	extern void PrintAssertMessage(std::string_view prefix, std::string_view condition, std::string_view message = {}, const std::source_location& location = std::source_location::current());
 }

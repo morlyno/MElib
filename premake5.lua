@@ -17,22 +17,14 @@ project "MElib"
         "Source/"
     }
 
-	defines {
-		"_CRT_SECURE_NO_WARNINGS",
-		"NOMINMAX"
-	}
-
 	filter "configurations:Debug or configurations:Debug-AS"
 		optimize "Off"
 		symbols "On"
-        defines { "ME_CONFIG_DEBUG", "_DEBUG" }
 
 	filter "configurations:Release"
 		optimize "On"
 		symbols "Default"
-        defines { "ME_CONFIG_RELEASE", "NDEBUG" }
 
 	filter "system:windows"
 		buildoptions { "/Zc:preprocessor", "/Zc:__cplusplus" }
         systemversion "latest"
-        defines { "ME_PLATFORM_WINDOWS" }

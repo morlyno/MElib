@@ -23,7 +23,7 @@ namespace MElib {
 	uint64 Hash::GenerateFNV(Memory::BufferArg arg)
 	{
 		auto buffer = arg.GetBuffer();
-		FNV1aAppendBytes(s_FNV_Offset_Basis, buffer.As<uint8>(), buffer.Size);
+		return FNV1aAppendBytes(s_FNV_Offset_Basis, buffer.As<uint8>(), buffer.Size);
 	}
 
 }
