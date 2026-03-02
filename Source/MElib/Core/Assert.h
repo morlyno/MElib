@@ -16,10 +16,10 @@
 #endif
 
 #ifdef ME_VERIFY
-	#define ME_CORE_VERIFY_MESSAGE_INTERNAL
-	#define ME_VERIFY_MESSAGE_INTERNAL
-	#define ME_CORE_VERIFY
-	#define ME_VERIFY
+	#undef ME_CORE_VERIFY_MESSAGE_INTERNAL
+	#undef ME_VERIFY_MESSAGE_INTERNAL
+	#undef ME_CORE_VERIFY
+	#undef ME_VERIFY
 #endif
 
 namespace MElib {

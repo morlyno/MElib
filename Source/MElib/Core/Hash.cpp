@@ -15,14 +15,8 @@ namespace MElib {
 		return hash;
 	}
 
-	uint64 Hash::GenerateFNV(const std::string_view str)
+	uint64 Hash::GenerateFNV(const Buffer buffer)
 	{
-		return FNV1aAppendBytes(s_FNV_Offset_Basis, (const uint8*)str.data(), str.size());
-	}
-
-	uint64 Hash::GenerateFNV(Memory::BufferArg arg)
-	{
-		auto buffer = arg.GetBuffer();
 		return FNV1aAppendBytes(s_FNV_Offset_Basis, buffer.As<uint8>(), buffer.Size);
 	}
 

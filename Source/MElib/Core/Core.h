@@ -5,12 +5,11 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #if !defined(ME_PLATFORM_WINDOWS) // && ...
-	#if defined(_WIN32) || defined(_WIN64)
+	#if defined(_WIN64)
 		#define ME_PLATFORM_WINDOWS 1
 	#else
 		#error unknown platform
 	#endif
-
 #endif
 
 #if (ME_PLATFORM_WINDOWS /* + ...*/) != 1

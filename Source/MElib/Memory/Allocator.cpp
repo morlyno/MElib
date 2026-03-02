@@ -3,17 +3,17 @@
 
 namespace MElib {
 
-	void* Memory::Allocator::Allocate(uint64 size)
+	void* Allocator::Allocate(uint64 size)
 	{
 		return malloc(size);
 	}
 
-	void Memory::Allocator::Free(void* memory)
+	void Allocator::Free(void* memory)
 	{
 		free(memory);
 	}
 
-	void* Memory::Allocator::Reallocate(void* memory, uint64 newSize)
+	void* Allocator::Reallocate(void* memory, uint64 newSize)
 	{
 		return realloc(memory, newSize);
 	}

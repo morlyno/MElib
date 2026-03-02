@@ -2,7 +2,7 @@
 
 #include "MElib/Core/Core.h"
 
-namespace MElib::Memory {
+namespace MElib {
 
 	class Allocator
 	{
