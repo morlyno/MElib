@@ -8,3 +8,4 @@
 
 #include "MElib/Memory/Allocator.h"
 #include "MElib/Memory/Buffer.h"
+#include "MElib/Memory/Memory.h"
