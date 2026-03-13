@@ -97,7 +97,7 @@ namespace MElib {
 		TReturn Invoke(TArgs&&... args) const;
 		TReturn operator()(TArgs&&... args) const { return Invoke(std::forward<TArgs>(args)...); }
 
-		bool IsBound() const { m_Stub != nullptr; }
+		bool IsBound() const { return m_Stub != nullptr; }
 		operator bool() const { return IsBound; }
 
 		DelegateID GetBoundID() const;
